@@ -1,0 +1,22 @@
+body{
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+
+#centerColumn{
+    width: 600px;
+    float: left;
+    
+}
+
+#leftColumn{
+    width: 300px;
+    float: left;
+}
+
+#top{
+    height: 100px;
+    margin-bottom: 40px;
+}

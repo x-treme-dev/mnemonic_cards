@@ -6,7 +6,7 @@
 
 function indexAction($smarty){
      
-    $smarty->assign('pageTitle', 'Mnemonic Cards');
+    $smarty->assign('pageTitle', 'm-cards');
     loadTemplate($smarty, 'index');
 }
 
