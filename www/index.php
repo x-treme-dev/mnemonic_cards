@@ -4,9 +4,11 @@
  *  index.php обрабатывает все запросы браузера
  * 
  */
-
+ 
 // подключаем файл с константами, переменными
 include_once '../config/config.php';
+// инициализация БД
+include_once '../config/db.php';
 // подключаем вспомогательные функции
 include_once '../library/mainFunctions.php';
 

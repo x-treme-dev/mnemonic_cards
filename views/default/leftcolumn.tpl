@@ -1,3 +1,10 @@
   <div id="leftColumn">
-            left column
-        </div>
+      
+     
+     {foreach $rsCategories as $item}
+            {$item['category']} 
+         {/foreach} 
+     
+      
+      
+   </div>
