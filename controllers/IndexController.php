@@ -6,11 +6,13 @@
 
 // модключение модели 
 include_once '../models/CategoriesModel.php';
+include_once '../models/CardsModel.php';
 
 function indexAction($smarty){
     
     //получить данные из функции
     $rsCategories = getAllMainCategories();
+    $rsCards = getLastCards();
      
     
     //вывести в шаблоне 

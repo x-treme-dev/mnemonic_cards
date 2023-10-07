@@ -6,12 +6,23 @@ body{
 
 
 #centerColumn{
-    width: 600px;
-    float: left;
-    
+     float: left;
+     margin-left: 20px;
+     width: 600px;
+}
+
+.link {
+   align-items: center;
+   border-bottom: dotted #D9D9D9;
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
+   text-decoration: none;
+  
 }
 
 #leftColumn{
+    border-top: dotted #D9D9D9;
     width: 300px;
     float: left;
 }
