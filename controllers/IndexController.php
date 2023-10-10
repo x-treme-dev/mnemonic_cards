@@ -6,26 +6,22 @@
 
 // модключение модели 
 include_once '../models/CategoriesModel.php';
-include_once '../models/CardsModel.php';
+
 
 function indexAction($smarty){
     
+  
     //получить данные из функции
     $rsCategories = getAllMainCategories();
-    $rsCards = getLastCards();
-     
     
-    //вывести в шаблоне 
+     //вывести в шаблоне 
     $smarty->assign('pageTitle', 'm-cards');
     $smarty->assign('rsCategories', $rsCategories);
     
-    loadTemplate($smarty, 'index');
-    
-    
- }
-
-function testAction(){
-    echo 'IndexController.php > testAction';
+    loadTemplate($smarty, 'header');
+    loadTemplate($smarty, 'centercolumn');
 }
+
+  
 
  

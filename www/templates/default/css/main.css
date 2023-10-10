@@ -5,11 +5,56 @@ body{
 }
 
 
-#centerColumn{
+#centerColumn, #cardsColumn{
      float: left;
      margin-left: 20px;
-     width: 600px;
+     width: 72%;
 }
+
+#cardsColumn{
+    display: flex;
+}
+
+.card{
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+    position: relative;
+    perspective: 1000px; /*глубина*/
+}
+
+/**т.к в DOM-дереве карточка с классом .back стоит ниже,
+чем карточка с классом .font, то карточка c классом .back
+перекроет карточку с классом .front
+Чтобы развернуть карточку запишем свойство transform
+**/
+.front, .back{
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: 1s;
+    padding-left: 10px;
+   
+}
+
+.front{
+    background-color: #f2f4f4;
+}
+
+.back{
+    background-color: #f2f3f4;
+    transform: rotateY(180deg);
+}
+
+.card:hover .front{transform: rotateY(180deg);}
+.card:hover .back{transform: rotateY(360deg);}
+
+
 
 .link {
    align-items: center;
@@ -23,10 +68,12 @@ body{
 
 #leftColumn{
     border-top: dotted #D9D9D9;
-    width: 300px;
+    width: 25%;
     float: left;
 }
 
-#top{
-    height: 100px;
+ 
+#top, #search{
+    height: 50px;
+    padding-left: 10px;
 }

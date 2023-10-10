@@ -19,17 +19,8 @@ function getAllMainCategories(){
     
     $rs = mysqli_query($db, $sql); 
      
-    // создать массив smarty, который будем разбирать по ключам выводить во View
-    $smartyRs = array();
-    
-    // сделаем выборку в виде массива согласно запросу, сформируем ассоциативный массив по ключам 
-    while($row = mysqli_fetch_assoc($rs)){
-         
-       //echo $row['category'].'<br/>';
-         $smartyRs[] = $row;
-    }
-    
    
-    return $smartyRs;
+   // функция из mainFunction.php конвертирует полученные данные из БД в массив
+    return createSmartyRsArray($rs);
 }
 

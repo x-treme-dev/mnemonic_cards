@@ -45,12 +45,14 @@ function d($value=null, $die=1){
 
 function createSmartyRsArray($rs){
     
+    // если данных нет, ничего не выводим
     if (! $rs) {
         return false;
     }
-
+   
+    // создать массив и заполнить построчно 
     $smartyRs = array();
-    while ($row = mysql_fetch_assoc($rs)){
+    while ($row = mysqli_fetch_assoc($rs)){
         $smartyRs[] = $row;
      }
     
