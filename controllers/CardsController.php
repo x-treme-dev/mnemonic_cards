@@ -41,10 +41,35 @@ function indexAction($smarty){
    
     $smarty->assign('rsCards', $rsCards);
     
-     
     loadTemplate($smarty, 'header');
+    loadTemplate($smarty, 'top');
+    loadTemplate($smarty, 'searchwithbuttons');
+    loadTemplate($smarty, 'leftcolumn');
     loadTemplate($smarty, 'cardscolumn');
+
     
 }
 
 
+/**
+ * Функция addnewcategoryAction() вызывается из main.js при клике на кнопку 'save' 
+ * 
+ * Передаем в БД наименование новой категории
+ * $_POST['newcategory'] - переменная, передаваемя из main.js через post-запрос
+ * 
+ * @return boolean
+ */
+
+
+function addnewcategoryAction(){
+    if(isset($_POST['newcategory']) && $_POST['newcategory'] !=''){
+        $newcategory = $_POST['newcategory'];
+       
+        echo 'success';
+    } 
+    else {
+       echo 'unsuccess'; 
+    }
+    
+    
+}

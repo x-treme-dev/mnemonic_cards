@@ -2,7 +2,7 @@
       
       
      {foreach $rsCategories as $item}
-         <a class="link" href="/?controller=cards&id={$item['id']}">
+         <a class="link" href="/cards/{$item['id']}/">
              <span>{$item['category']}</span>
           </a>
      {/foreach} 

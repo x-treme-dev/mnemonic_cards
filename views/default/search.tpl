@@ -1,4 +1,4 @@
 {*панель поиска*}
 <div id="search">
-Панель поиска
+   <button id="button_NewCategory">New category</button>
 </div>

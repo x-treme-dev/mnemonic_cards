@@ -19,6 +19,9 @@ function indexAction($smarty){
     $smarty->assign('rsCategories', $rsCategories);
     
     loadTemplate($smarty, 'header');
+    loadTemplate($smarty, 'top');
+    loadTemplate($smarty, 'search');
+    loadTemplate($smarty, 'leftcolumn');
     loadTemplate($smarty, 'centercolumn');
 }
 

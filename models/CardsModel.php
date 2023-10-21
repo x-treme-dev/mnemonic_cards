@@ -26,3 +26,4 @@ function getCardsByID($categoryID){
     // функция из mainFunction.php конвертирует полученные данные из БД в массив
      return createSmartyRsArray($rs);
 }
+

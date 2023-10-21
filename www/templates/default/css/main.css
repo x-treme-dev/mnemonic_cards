@@ -2,8 +2,56 @@ body{
     padding: 0;
     margin: 0;
     display: block;
+    height: 100%;
 }
 
+h2{
+    margin: 0 0 0 10px;
+}
+
+ 
+#group_left, #group_right{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: flex-end;
+   width: 40%;
+ }
+
+#group_left{
+    justify-content: center;
+     
+}
+
+#button_NewCategory{
+    border: none;
+    margin: 5px 0 0 0;
+    height: 50px;
+    width: 100px;
+}
+
+#textfield_NewCategory{
+    border:0;
+    border-bottom: 2px solid #D2D2D2;
+    display: none;
+    outline: none;
+    margin: 5px 0 0 0;
+    padding: 0 0 0 10px;
+    height: 45px;
+    width: 350px;
+}
+
+.buttons_group{
+    background-color: #e5e8e8; 
+    border: 2px dotted #fff;
+    height: 48px;
+    margin: 5px 10px 0 0;
+    width: 80px;
+}
+
+.buttons_group:first-child{
+    display: none;
+}
 
 #centerColumn, #cardsColumn{
      float: left;
@@ -13,46 +61,8 @@ body{
 
 #cardsColumn{
     display: flex;
+    margin-top: 20px;
 }
-
-.card{
-    width: 300px;
-    height: 300px;
-    margin-right: 20px;
-    position: relative;
-    perspective: 1000px; /*глубина*/
-}
-
-/**т.к в DOM-дереве карточка с классом .back стоит ниже,
-чем карточка с классом .font, то карточка c классом .back
-перекроет карточку с классом .front
-Чтобы развернуть карточку запишем свойство transform
-**/
-.front, .back{
-    backface-visibility: hidden;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transition: 1s;
-    padding-left: 10px;
-   
-}
-
-.front{
-    background-color: #f2f4f4;
-}
-
-.back{
-    background-color: #f2f3f4;
-    transform: rotateY(180deg);
-}
-
-.card:hover .front{transform: rotateY(180deg);}
-.card:hover .back{transform: rotateY(360deg);}
 
 
 
@@ -67,13 +77,87 @@ body{
 }
 
 #leftColumn{
-    border-top: dotted #D9D9D9;
-    width: 25%;
     float: left;
+    width: 25%;
 }
 
- 
+#message{
+    text-align: center;
+    background-color: #D2D2D2;
+    border:0;
+    display: none;
+    margin: 5px 0 0 15px;
+    padding: 5px;
+    height: 40px;
+    width: 200px;
+}
+
+#search{
+    border-bottom: dotted #D9D9D9;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+     
+}
+
+
 #top, #search{
-    height: 50px;
+     height: 60px;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+}
+
+#top{
+     background-color: #e5e8e8; 
+}
+
+
+
+/*****************Begin Card Styles************/
+.card{
+    width: 250px;
+    height: 250px;
+    margin-right: 30px;
+    position: relative;
+    perspective: 1000px; /*глубина*/
+}
+ 
+.front, .back{
+    backface-visibility: hidden;
+    border: dotted #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: 1s;
     padding-left: 10px;
+ }
+
+.front{
+    background-color: #fff;
+}
+
+.back{
+    background-color: #fff;
+    transform: rotateY(180deg);
+}
+
+.card:hover .front{transform: rotateY(180deg);}
+.card:hover .back{transform: rotateY(360deg);}
+
+/************End Card Styles*************/
+
+ 
+/************TextArea Styles**************************/
+
+input[type="text"]{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
 }

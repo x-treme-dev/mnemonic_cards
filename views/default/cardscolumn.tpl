@@ -1,4 +1,5 @@
 {*cardscolumn*}
+   
 
 <div id='cardsColumn'>
   {foreach $rsCards as $item}
@@ -14,6 +15,7 @@
      {/foreach} 
 </div>
 
+ 
  </body>
 
 </html>
