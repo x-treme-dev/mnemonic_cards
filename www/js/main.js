@@ -5,15 +5,7 @@
 
   $(document).ready(function(){
       
-      //при нажатии на кнопку 'new category' медленно появляется текстовое поле и кнопка 'save'
-       $("#button_NewCategory").click(function(){
-       $('#button_NewCategory').fadeOut(0);// скрыть кнопку 'new category'
-       $('#textfield_NewCategory').fadeIn(1000); // показать текстовое поле 'new category'
-       $('.buttons_group:first-child').fadeIn(2000); // показать кнопку 'save'
-          
-      });
-      
-      
+       // взять значение текстового поля и отправить post-запрос
         $(".buttons_group:first-child").click(function(){
         var newCategory = $("#textfield_NewCategory").val();
         if(newCategory !==''){
@@ -35,14 +27,36 @@
                 }
             }
         });
-        
+        // если ничего не введено пользователем, выводим сообщение на страницу
         } else{
            toChangeSequenceElements(2);
         }
         
       });
       
-      // изменяем последовательность появления/исчезания элементов
+         //при нажатии на кнопку 'new category' медленно появляется текстовое поле и кнопка 'save'
+        $("#button_NewCategory").click(function(){
+         toChangeSequenceElements(3);
+          
+        });
+      
+       // убрать сообщение по клику
+          $('#message').click(function(){
+              $('#message').fadeOut(0);
+          });
+      
+       // убрать текстовое поле по клику на кнопку 'cancel', если поле ввода не требуется
+          $('.buttons_group:nth-child(2)').click(function(){
+              toChangeSequenceElements(1);
+          });
+          
+          
+          
+      
+       
+   });
+   
+    // изменяем последовательность появления/исчезания элементов
       function toChangeSequenceElements(view){
           if(view === 1){
             $('#message').fadeOut(0);
@@ -57,24 +71,14 @@
             $('#button_NewCategory').fadeIn(2000); // показать кнопку 'new category'
             $('.buttons_group:first-child').fadeOut(1000); // скрыть кнопку 'save'
           }
-          
-         
-       }
-      
-       // убрать сообщение по клику
-          $('#message').click(function(){
-              $('#message').fadeOut(0);
-          });
-      
-       // убрать текстовое поле по клику на кнопку 'cancel', если поле ввода не требуется
-          $('.buttons_group:nth-child(2)').click(function(){
-              toChangeSequenceElements(1);
-          });
-          
-      
-       
-   });
+          else if(view === 3){
+            $('#button_NewCategory').fadeOut(0);// скрыть кнопку 'new category'
+            $('#textfield_NewCategory').fadeIn(1000); // показать текстовое поле 'new category'
+            $('.buttons_group:first-child').fadeIn(2000); // показать кнопку 'save'
+          }
+        }
  
+         
     
   
   

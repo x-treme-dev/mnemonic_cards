@@ -20,7 +20,7 @@ h2{
 
 #group_left{
     justify-content: center;
-     
+    width: 30%; 
 }
 
 #button_NewCategory{
@@ -38,7 +38,7 @@ h2{
     margin: 5px 0 0 0;
     padding: 0 0 0 10px;
     height: 45px;
-    width: 350px;
+    width: 200px;
 }
 
 .buttons_group{
@@ -66,7 +66,7 @@ h2{
 
 
 
-.link {
+a{
    align-items: center;
    border-bottom: dotted #D9D9D9;
    display: flex;
@@ -76,6 +76,7 @@ h2{
   
 }
 
+ 
 #leftColumn{
     float: left;
     width: 25%;
@@ -91,6 +92,17 @@ h2{
     height: 40px;
     width: 200px;
 }
+
+#input_oneCategory{
+    border:0;
+    border-bottom: 2px solid #D2D2D2;
+    outline: none;
+    margin: 5px 0 0 0;
+    padding: 0 0 0 10px;
+    height: 45px;
+    width: 25%;
+}
+
 
 #search{
     border-bottom: dotted #D9D9D9;

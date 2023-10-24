@@ -27,3 +27,5 @@ function getCardsByID($categoryID){
      return createSmartyRsArray($rs);
 }
 
+
+

@@ -8,7 +8,8 @@
     </div>
     
      <div id="message"></div>
-    
+   
+         
     <div id="group_right">
     <button class="buttons_group">save</button>
     <button class="buttons_group">cancel</button>
