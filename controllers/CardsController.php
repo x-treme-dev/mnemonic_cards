@@ -17,6 +17,8 @@ include_once '../models/CardsModel.php';
  * @param object $smarty шаблонизатор
  */
 
+   
+ 
 function indexAction($smarty){
     
     // для вывода карточек: получить ID категории из GET-запроса
@@ -72,4 +74,23 @@ function addnewcategoryAction(){
     }
    // создаем новую категорию в модели CategoriesModel.php
     toCreateNewCategory($newcategory); 
+}
+
+/**
+ * Функция удаления категории
+ * вызывается из main.js при клике по кнопке 'delete'
+ */
+function deletecategoryAction(){
+   if(isset($_POST['categoryID']) && $_POST['categoryID'] !=''){
+        $categoryID = $_POST['categoryID'];
+      
+         echo 'success';
+    } 
+    else {
+         echo 'unsuccess';
+    } 
+    
+    deleteCategory($categoryID);
+    
+    
 }

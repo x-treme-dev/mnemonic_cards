@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Создаем новую категорию
+ * Создаем новую категорию в таблице category в БД
  */
 
 function toCreateNewCategory($newCategory){
@@ -24,6 +24,12 @@ function getAllMainCategories(){
    
     // функция из mainFunction.php конвертирует полученные данные из БД в массив
     return createSmartyRsArray($rs);
+}
+
+function deleteCategory($categoryID){
+    $sql = "DELETE FROM categories WHERE id=('$categoryID')";
+    global $db; // взять значение глобальной переменной $db (индентификатор соединения с БД)   
+    mysqli_query($db, $sql); 
 }
 
  

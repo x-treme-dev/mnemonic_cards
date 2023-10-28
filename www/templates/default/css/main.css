@@ -30,7 +30,7 @@ h2{
     width: 100px;
 }
 
-#textfield_NewCategory{
+#input_NewCategory{
     border:0;
     border-bottom: 2px solid #D2D2D2;
     display: none;

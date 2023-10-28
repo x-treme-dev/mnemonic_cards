@@ -11,8 +11,9 @@ include_once '../models/CategoriesModel.php';
 function indexAction($smarty){
     
   
-    //получить данные из функции
+    //получить все категории из функции
     $rsCategories = getAllMainCategories();
+    
     
      //вывести в шаблоне 
     $smarty->assign('pageTitle', 'm-cards');
