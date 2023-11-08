@@ -4,66 +4,22 @@
  * 
  */
 
+
   $(document).ready(function(){
-        // Поле ввода input "new category"для ввода нового значения категории
-       // взять значение текстового поля и отправить post-запрос
-        $(".buttons_group:first-child").click(function(){
-        var newCategory = $("#input_NewCategory").val();
-        if(newCategory !==''){
       
-        console.log(newCategory);
-        toChangeSequenceElements(1);
-          
-        //Ajax-запрос: получили данные от пользователя и передали в контроллер CardsController.php
-        $.ajax({
-            type: 'POST',
-            asinc: false,
-            //обращение к функции addnewcategoryAction() контроллера CardsController.php
-            url: "/cards/addnewcategory/",
-            data: {newcategory: newCategory},
-            success: function(data){
-                if(data === 'success'){
-                    console.log('success');
-                }else if(data === 'unsuccess'){
-                    console.log('unsuccess');
-                }
-            }
-        });
-        // если ничего не введено пользователем, выводим сообщение на страницу
-        } else{
-           toChangeSequenceElements(2);
-        }
-        
-      });
-      
-      
-      
-        //Кнопка "new category"
-         //при нажатии на кнопку 'new category' медленно появляется текстовое поле и кнопка 'save'
-        $("#button_NewCategory").click(function(){
-         toChangeSequenceElements(3);
-          
-        });
-      
-        // div с сообщением об ошике
-       // убрать сообщение по клику
-          $('#message').click(function(){
-              $('#message').fadeOut(0);
-          });
-      
-        // Кнопка 'cancel'
-       // убрать текстовое поле по клику на кнопку 'cancel', если поле ввода не требуется
-          $('.buttons_group:nth-child(2)').click(function(){
-              toChangeSequenceElements(1);
-          });
-          
-        // Кнопка 'delete'
-       // удалить ранее созданную категорию (следом перестают выводится, принадлежащие ей карточки)
-       // т.к. функция без имени, то получим id-категории за get-запроса при клике на кнопку 'delete'
+ //---------------Действия в CardsController.php---------------------------------------------------
+ // 1. Удалить категорию
+ // 2. Редактировать категорию (ссылка на EditController.php)
+ 
+       // Кнопка 'delete'
+       // т.к. функция без имени, то получим id-категории посредством get-запроса записанным прямо в кнопку 'delete'
        // через атрибут data-parameter
        
-         $('.buttons_group:nth-child(5)').click(function(){
-             var categoryID = this.getAttribute('data-parameter');
+         $('.buttons_group:nth-child(2)').click(function(){
+            if( confirm('Вы действительно хотите  удалить категорию?')){
+                
+                 $('#message').html("category is deleted!").fadeIn(1000);
+                var categoryID = this.getAttribute('data-parameter');
              
              $.ajax({
                  url:'/cards/deletecategory/',
@@ -71,9 +27,10 @@
                  data: {categoryID:categoryID},
                  success: function(data){
                     if(data === 'success'){
-                    console.log('success');
- 
-                    }else if(data === 'unsuccess'){
+                    console.log('success');    
+                    location.reload(); return false;   
+                  
+                     }else if(data === 'unsuccess'){
                      console.log('unsuccess');
                    }
                  
@@ -82,38 +39,99 @@
              });
              
               console.log(this.getAttribute('data-parameter'));
+                
+            }else {
+                 $('#message').html("operation is canceled").fadeIn(1000);
+            }
+             
           });
           
           
+    //------------------Действия в EditController.php ---------------------------------------
+    // 1. Редактировать категорию
+    
+    
+       // Редактируем название категории и нажимаем кнопку 'save' в edit_panel.tpl
+          $('.edit_buttons_group:nth-child(1)').click(function(){
+              var updateCategory = $('#input_editCategory').val();
+              console.log(updateCategory);
+              
+              if(updateCategory !== ''){
+              var categoryID = this.getAttribute('data-parameter');
+              
+               $.ajax({
+                 url:'/edit/updatecategory/',
+                 type: "POST",
+                 data: {updateCategory:updateCategory, categoryID:categoryID},
+                 success: function(data){
+                    if(data === 'success'){
+                    console.log('success');
+                      
+                    }else if(data === 'unsuccess'){
+                     console.log('unsuccess');
+                      
+                   }
+                 
+                }
+                 
+             });
+         }else {
+             $('#message').html('new category is not created!').fadeIn(1000);
+             
+         }
+           
+          });
           
+          
+           // -------------------- Действия в NewController.php ---------------------
+   // 1. Создать новую категорию
+   
+         // создать новую категорию      
+        // Поле ввода input "new category"для ввода нового значения категории
+       // взять значение текстового поля и отправить post-запрос
+        $(".new_buttons_group:nth-child(1)").click(function(){
+        var newCategory = $('#input_NewCategory').val();
+        
+        if(newCategory !==''){
+        console.log(newCategory);
+        //Ajax-запрос: получили данные от пользователя и передали в контроллер CardsController.php
+        $.ajax({
+            type: 'POST',
+            //обращение к функции addnewcategoryAction() контроллера CardsController.php
+            url: "/new/addnewcategory/",
+            data: {newcategory: newCategory},
+            success: function(data){
+                if(data === 'success'){
+                    console.log('success');
+                     
+                  }else if(data === 'unsuccess'){
+                    console.log('unsuccess');
+                }
+            }
+        });
+        // если ничего не введено пользователем, выводим сообщение на страницу
+        } else{
+             $('#message').html("is empty").fadeIn(1000);
+        }
+        
+     });
+      
+    
+    
+          // div с сообщением об ошибке
+         // убрать сообщение по клику
+          $('#message').click(function(){
+              $('#message').fadeOut(0);
+          });
+   
           
    });
    
    
    
-   //------------------ Функция скрытия/появления элементов на странице -----------------------
-    // изменяем последовательность появления/исчезания элементов
-      function toChangeSequenceElements(view){
-          if(view === 1){
-            $('#message').fadeOut(0);
-            $("#input_NewCategory").val("");
-            $('#input_NewCategory').fadeOut(0); // скрыть текстовое поле 'new category'
-            $('#button_NewCategory').fadeIn(2000); // показать кнопку 'new category'
-            $('.buttons_group:first-child').fadeOut(1000); // скрыть кнопку 'save' 
-          }
-          else if(view === 2){
-            $('#message').html("new category is not created!").fadeIn(1000);
-            $('#input_NewCategory').fadeOut(0); // скрыть текстовое поле 'new category'
-            $('#button_NewCategory').fadeIn(2000); // показать кнопку 'new category'
-            $('.buttons_group:first-child').fadeOut(1000); // скрыть кнопку 'save'
-          }
-          else if(view === 3){
-            $('#button_NewCategory').fadeOut(0);// скрыть кнопку 'new category'
-            $('#input_NewCategory').fadeIn(1000); // показать текстовое поле 'new category'
-            $('.buttons_group:first-child').fadeIn(2000); // показать кнопку 'save'
-          }
-        }
- 
+   
+   
+  
          
    
   

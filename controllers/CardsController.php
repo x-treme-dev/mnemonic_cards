@@ -29,7 +29,6 @@ function indexAction($smarty){
     // Получить из БД все карточки по ID категории (category_id)
     $rsCards = getCardsByID($categoryID);
     
-    
      
      // в этом контроллере блоки верхнего меню,
     // панели поиска и левого столбца остаются без изменений (дублируется с IndexController.php);
@@ -37,44 +36,27 @@ function indexAction($smarty){
     
     //получить данные из функции: все категории для вывода в левом столбце
     $rsCategories = getAllMainCategories();
-     
+    //получить из БД одну категорию
+    $oneCategory = getOneCategory($categoryID);
     
     
      //вывести в шаблоне 
     $smarty->assign('pageTitle', 'm-cards');
     $smarty->assign('rsCategories', $rsCategories);
     $smarty->assign('rsCards', $rsCards);
+    $smarty->assign('oneCategory', $oneCategory);
     
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'top');
-    loadTemplate($smarty, 'searchwithbuttons');
-    loadTemplate($smarty, 'leftcolumn');
-    loadTemplate($smarty, 'cardscolumn');
+    loadTemplate($smarty, 'cards_panel');
+    loadTemplate($smarty, 'index_left_column');
+    loadTemplate($smarty, 'cards_column');
 
     
 }
 
 
-/**
- * Функция addnewcategoryAction(); вызывается из main.js при клике на кнопку 'save' 
- * 
- * Передаем в БД наименование новой категории
- * $_POST['newcategory'] - переменная, передаваемя из main.js через post-запрос
- * 
- * @return boolean
- */
-function addnewcategoryAction(){
-    if(isset($_POST['newcategory']) && $_POST['newcategory'] !=''){
-        $newcategory = $_POST['newcategory'];
-      
-        echo 'success';
-    } 
-    else {
-       echo 'unsuccess'; 
-    }
-   // создаем новую категорию в модели CategoriesModel.php
-    toCreateNewCategory($newcategory); 
-}
+
 
 /**
  * Функция удаления категории

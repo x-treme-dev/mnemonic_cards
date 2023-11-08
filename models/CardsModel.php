@@ -28,4 +28,15 @@ function getCardsByID($categoryID){
 }
 
 
+function toCreateNewCardWithCategory_ID($lastIDCategory){
+    
+    $sql = "INSERT INTO `cards` (category_id, front_card, back_card) VALUES ('{$lastIDCategory}', 'front' , 'back' )";
+    
+    global $db;
+    
+    $rs = mysqli_query($db, $sql);
+    
+    return mysqli_fetch_assoc($rs);
+}
+
 

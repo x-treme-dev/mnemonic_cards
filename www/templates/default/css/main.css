@@ -5,43 +5,74 @@ body{
     height: 100%;
 }
 
+ #button_NewCategory {
+    border: 1px solid #fff; /* Рамка */
+    border-radius: 5px;
+    margin: 5px 0 0 5px;
+    padding: 5px 15px; /* Поля */
+    text-align: center;
+    color: #fff; /* Цвет текста */
+    cursor: pointer;
+    height: 30px;
+    width: 130px;
+}
+
 h2{
     margin: 0 0 0 10px;
 }
 
  
+ 
 #group_left, #group_right{
    display: flex;
    flex-direction: row;
-   flex-wrap: wrap;
-   justify-content: flex-end;
+   flex-wrap:nowrap;
+   justify-content: end;
    width: 40%;
  }
 
 #group_left{
-    justify-content: center;
-    width: 30%; 
+  justify-content: start;  
+   width: 30%; 
 }
 
-#button_NewCategory{
-    border: none;
-    margin: 5px 0 0 0;
-    height: 50px;
-    width: 100px;
+#group_center{
+    width: 28%;
 }
 
+ 
 #input_NewCategory{
     border:0;
     border-bottom: 2px solid #D2D2D2;
-    display: none;
+    
     outline: none;
     margin: 5px 0 0 0;
     padding: 0 0 0 10px;
     height: 45px;
     width: 200px;
 }
+#input_editCategory{
+    border:0;
+    border-bottom: 2px solid #D2D2D2;
+    display: inline-block;
+    outline: none;
+    margin: 5px 0 0 0;
+    height: 45px;
+    width: 100%; 
+    
+}
 
-.buttons_group{
+#oneCategory{
+    text-align: center;
+    display: inline-block;
+    outline: none;
+    margin: 5px 0 0 0;
+    height: 45px;
+    width: 100%; 
+}
+
+
+.buttons_group, .edit_buttons_group, .new_buttons_group{
     background-color: #e5e8e8; 
     border: 2px dotted #fff;
     height: 48px;
@@ -49,17 +80,15 @@ h2{
     width: 80px;
 }
 
-.buttons_group:first-child{
-    display: none;
-}
+ 
 
-#centerColumn, #cardsColumn{
+#centerColumn, #cardsColumn, #newCardsColumn{
      float: left;
      margin-left: 20px;
      width: 72%;
 }
 
-#cardsColumn{
+#cardsColumn, #editCardsColumn{
     display: flex;
     margin-top: 20px;
 }
@@ -76,6 +105,18 @@ a{
   
 }
 
+
+
+   .a_backTo {
+    border: 1px solid #333; /* Рамка */
+    display: inline-block;
+    padding: 5px 15px; /* Поля */
+    text-decoration: none; /* Убираем подчёркивание */
+    color: #000; /* Цвет текста */
+    cursor: pointer;
+  }
+   
+  
  
 #leftColumn{
     float: left;
@@ -104,26 +145,26 @@ a{
 }
 
 
-#search{
+#search, #edit, #new{
     border-bottom: dotted #D9D9D9;
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-     
-}
+    justify-content: space-evenly;
+    height: 60px;
+ }
 
-
-#top, #search{
-     height: 60px;
-     display: flex;
-     flex-direction: row;
-     justify-content: space-between;
-}
 
 #top{
      background-color: #e5e8e8; 
+     display: flex;
+     height: 60px;
+     flex-direction: row;
+     justify-content: start;
 }
+
+ 
+     
 
 
 

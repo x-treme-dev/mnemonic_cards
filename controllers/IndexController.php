@@ -21,9 +21,9 @@ function indexAction($smarty){
     
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'top');
-    loadTemplate($smarty, 'search');
-    loadTemplate($smarty, 'leftcolumn');
-    loadTemplate($smarty, 'centercolumn');
+    loadTemplate($smarty, 'index_panel');
+    loadTemplate($smarty, 'index_left_column');
+    loadTemplate($smarty, 'index_center_column');
 }
 
   
