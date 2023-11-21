@@ -1,3 +1,28 @@
+a{
+   align-items: center;
+   border-bottom: dotted #D9D9D9;
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
+   text-decoration: none;
+  
+}
+
+
+
+   .a_backTo {
+    border: 1px solid #333; /* Рамка */
+    display: inline-block;
+    padding: 5px 15px; /* Поля */
+    margin: 200px 0 0 10px;
+    text-decoration: none; /* Убираем подчёркивание */
+    color: #000; /* Цвет текста */
+    cursor: pointer;
+    width: 100px;
+  }
+   
+
+
 body{
     padding: 0;
     margin: 0;
@@ -6,23 +31,62 @@ body{
 }
 
  #button_NewCategory {
-    border: 1px solid #fff; /* Рамка */
-    border-radius: 5px;
+    border: none;
+    background-color: #D2D2D2;
+    display: inline-block;
+    font-size: 15px;
     margin: 5px 0 0 5px;
     padding: 5px 15px; /* Поля */
     text-align: center;
+    text-decoration: none;
     color: #fff; /* Цвет текста */
-    cursor: pointer;
-    height: 30px;
+    cursor:pointer;
+    height: 50px;
     width: 130px;
 }
 
-h2{
-    margin: 0 0 0 10px;
+.buttons_group, .edit_buttons_group, .new_buttons_group{
+    background-color: #e5e8e8; 
+    border: 2px dotted #fff;
+    height: 48px;
+    margin: 5px 10px 0 0;
+    width: 80px;
 }
 
  
- 
+
+#centerColumn, #cardsColumn, #newCardsColumn{
+     float: left;
+     margin-left: 20px;
+     width: 72%;
+}
+
+#cardsColumn{
+    display: flex;
+    margin-top: 20px;
+}
+
+.card_front, .card_back, .card_frontEdit, .card_backEdit{
+    resize: none;
+    width: 47%;
+    height: 100%;
+}    
+
+.div_newcard, .div_cardEdit{
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    height: 250px;
+}
+
+.div_cardEdit{
+    width: 600px;
+    height: 400px;
+}
+
+
+
 #group_left, #group_right{
    display: flex;
    flex-direction: row;
@@ -40,11 +104,18 @@ h2{
     width: 28%;
 }
 
+
+h2{
+    margin: 0 0 0 10px;
+}
+
+ 
+ 
+
  
 #input_NewCategory{
     border:0;
     border-bottom: 2px solid #D2D2D2;
-    
     outline: none;
     margin: 5px 0 0 0;
     padding: 0 0 0 10px;
@@ -72,55 +143,25 @@ h2{
 }
 
 
-.buttons_group, .edit_buttons_group, .new_buttons_group{
-    background-color: #e5e8e8; 
-    border: 2px dotted #fff;
-    height: 48px;
-    margin: 5px 10px 0 0;
-    width: 80px;
-}
 
- 
-
-#centerColumn, #cardsColumn, #newCardsColumn{
-     float: left;
-     margin-left: 20px;
-     width: 72%;
-}
-
-#cardsColumn, #editCardsColumn{
+#newCardsColumn, #editCardsColumn{
     display: flex;
-    margin-top: 20px;
+    justify-content:space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
 }
 
 
 
-a{
-   align-items: center;
-   border-bottom: dotted #D9D9D9;
-   display: flex;
-   justify-content: space-between;
-   padding: 10px;
-   text-decoration: none;
-  
-}
-
-
-
-   .a_backTo {
-    border: 1px solid #333; /* Рамка */
-    display: inline-block;
-    padding: 5px 15px; /* Поля */
-    text-decoration: none; /* Убираем подчёркивание */
-    color: #000; /* Цвет текста */
-    cursor: pointer;
-  }
-   
   
  
 #leftColumn{
     float: left;
     width: 25%;
+    display: flex;
+   flex-direction: column;
+    
 }
 
 #message{
@@ -163,8 +204,10 @@ a{
      justify-content: start;
 }
 
+
+
  
-     
+
 
 
 

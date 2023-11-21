@@ -32,30 +32,57 @@ function indexAction($smarty){
  * Функция addnewcategoryAction(); вызывается из main.js при клике на кнопку 'save' 
  * 
  * Передаем в БД наименование новой категории
+ * Получаем из БД последний ID категории и передаем вместе с новой карточкой в БД 
+ * Последный ID категории записываем в category_id в таблице cards
  * $_POST['newcategory'] - переменная, передаваемя из main.js через post-запрос
  * 
  * @return boolean
  */
+
 function addnewcategoryAction(){
-    if(isset($_POST['newcategory']) && $_POST['newcategory'] !=''){
+    
+    if(isset($_POST['newcategory']) && isset($_POST['cardsJSON']) ){
+        
         $newcategory = $_POST['newcategory'];
-      
+        $cardsJSON = $_POST['cardsJSON'];
         echo 'success';
     } 
     else {
        echo 'unsuccess'; 
     }
-   // создаем новую категорию в модели CategoriesModel.php
-    toCreateNewCategory($newcategory); 
+    // получит массив из json
+    $cards = json_decode($cardsJSON, true);
+   //создаем новую категорию в БД
+   toCreateNewCategory($newcategory); 
    // после создания категории 
-   // получить id новой категории для создания карточек, 
+   // получить id новой категории (т.е. последный автомат. созданный ID)
+   // для создания карточек, 
    // которые будут к ней относиться
    // у карточек это будет category_id
-    
     $lastIDCategory = getLastIdCategory();
-     
-    // передать id новой категории в CardsModel.php
-     toCreateNewCardWithCategory_ID($lastIDCategory['id']);
     
-     
+    toParseArray($lastIDCategory, $cards);
 }
+
+/*
+ * Разобрать массив и получить фронтальную и тыльную сторону карточки
+ * Передать в БД
+ */
+ 
+ function toParseArray($lastIDCategory, $cards){
+      
+       foreach($cards as $items){
+        foreach ($items as $sides => $value){
+            if($sides == "front"){
+                $front = $value;
+                echo $front.'<br/>';
+            }else if($sides == "back"){
+                $back = $value;
+                echo $back.'<br/>';
+                //в CardsModel.php передать id новой категории, а также текст для фронатальной и тыльной стороны карточки
+                toCreateNewCardWithCategory_ID($lastIDCategory['id'], $front, $back); 
+            }
+        }
+        
+      }
+ }

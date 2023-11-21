@@ -45,12 +45,12 @@ function getOneCategory($categoryID){
 }
 
 // обновление имени категории
-function updateCategory($categoryID, $updateCategory){
+function  toUpdateCategory($categoryID, $updateCategory){
     $sql = "UPDATE categories SET category =('$updateCategory') WHERE id =('$categoryID')";
     global $db;// взять значение глобальной переменной $db (индентификатор соединения с БД)  
-     $rs = mysqli_query($db, $sql);
+    mysqli_query($db, $sql);
     
-     return mysqli_fetch_assoc($rs);
+    // return mysqli_fetch_assoc($rs);
 }
  
 // получить последний созданный уникальный id

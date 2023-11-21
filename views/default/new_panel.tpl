@@ -12,7 +12,6 @@
      
     <div id="group_right">
     <button class="new_buttons_group">save</button>
-    <button class="new_buttons_group">edit</button>
     <button class="new_buttons_group">add</button>
     {*$smarty.get.id - получение параметра get-запроса, где id-это параметр get-запроса
       Таким образом получаем id категории для удаления при клике на кнопку 'delete'

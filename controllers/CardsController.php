@@ -73,6 +73,7 @@ function deletecategoryAction(){
     } 
     
     deleteCategory($categoryID);
+    deleteCards($categoryID);
     
     
 }

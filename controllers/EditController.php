@@ -6,6 +6,7 @@
  */
 
 // подключение модели 
+include_once '../models/CardsModel.php';
 include_once '../models/CategoriesModel.php';
 
 function indexAction($smarty){
@@ -16,8 +17,10 @@ function indexAction($smarty){
     
     //получить все категории из функции
     $rsCategories = getAllMainCategories();
+    // Получить из БД все карточки по ID категории (category_id)
+    $rsCards = getCardsByID($categoryID);
     
-      $oneCategory = getOneCategory($categoryID);
+    $oneCategory = getOneCategory($categoryID);
      
   
     
@@ -25,6 +28,7 @@ function indexAction($smarty){
     $smarty->assign('pageTitle', 'm-cards');
     $smarty->assign('rsCategories', $rsCategories);
     $smarty->assign('oneCategory', $oneCategory);
+    $smarty->assign('rsCards', $rsCards);
     
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'message_top');
@@ -33,20 +37,53 @@ function indexAction($smarty){
 }
 
 function updatecategoryAction(){
-    if((isset($_POST['categoryID']) && $_POST['categoryID'] !='') &&  
-      (isset($_POST['updateCategory']) && $_POST['updateCategory'] !='')){
+    if(isset($_POST['categoryID']) && isset($_POST['updateCategory']) && isset($_POST['cardsJSON'])){
         
         $categoryID = $_POST['categoryID'];
         $updateCategory = $_POST['updateCategory'];
-      
+        $cardsJSON = $_POST['cardsJSON'];
+        
+        
          echo 'success';
     } 
     else{
         echo 'unsuccess';
     }
     
-   updateCategory($categoryID, $updateCategory);
+    $cards = json_decode($cardsJSON,true);
+     
+    // редактировать название категории 
+    toUpdateCategory($categoryID, $updateCategory);
+    // разобрать полученный массив карточек, соответс. категории
+    // и вызвать функцию toUpdateCards() - отредактировать карточки
+    toParseArray($categoryID, $cards);
+  
 }
+
+
+ function toParseArray($categoryID, $cards){
+      
+       foreach($cards as $items){
+        foreach ($items as $row => $value){
+            if($row == "front"){
+                $front = $value;
+                echo $front.'<br/>';
+            }else if($row == "back"){
+                $back = $value;
+                echo $back.'<br/>';
+               
+            }else if($row == "id"){
+                $id = $value;
+                echo $id.'<br/>';
+                 //в CardsModel.php передать id новой категории, а также текст для фронтальной и тыльной стороны карточки 
+                 // вместе с id самой карты
+                 toUpdateCards($categoryID, $front, $back, $id); 
+            }
+            
+        }
+        
+      }
+ }
 
 
 
