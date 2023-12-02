@@ -1,6 +1,6 @@
 {*верхнияя панель приложнеия - top*} 
         <div id="top">
-        <h2>{$pageTitle}</h2>
+        <a href="/index/" class="a_title">{$pageTitle}</a>
          <div id="message"></div> 
          
          </div>

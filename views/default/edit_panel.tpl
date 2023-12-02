@@ -17,7 +17,8 @@
       Таким образом получаем id категории для удаления при клике на кнопку 'delete'
       data-parameter - данные передаваемые в функцию при клике на кнопку 'delete'
     *}
-    <button class="edit_buttons_group">delete</button>        
+    <button class="edit_buttons_group" data-parameter="{$smarty.get.id}" >add</button>   
+    
     </div>
    
 </div>

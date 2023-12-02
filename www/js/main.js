@@ -7,6 +7,9 @@
 
   $(document).ready(function(){
       
+  var cardForDelete = null;  // объявление глобальной переменной 
+  
+  
  //---------------Действия в CardsController.php---------------------------------------------------
  // 1. Удалить категорию
  // 2. Редактировать категорию (ссылка на EditController.php)
@@ -16,7 +19,7 @@
        // через атрибут data-parameter
        
          $('.buttons_group:nth-child(2)').click(function(){
-            if( confirm('Вы действительно хотите  удалить категорию?')){
+            if( confirm('Вы действительно хотите  удалить категорию с карточками?')){
                 
                  $('#message').html("category is deleted!").fadeIn(1000);
                 var categoryID = this.getAttribute('data-parameter');
@@ -50,6 +53,9 @@
     //------------------Действия в EditController.php ---------------------------------------
     // 1. Редактировать категорию
     // 2. Редактировать карточки, принадлежащие категории
+    // 3. Удалить карточку, выбранную по клику
+    // 4. Добавить карточку 
+    
     
     
        // Редактируем название категории и нажимаем кнопку 'save' в edit_panel.tpl
@@ -93,12 +99,90 @@
                 }
                  
              });
+             
+               $('#message').html("category is updated").fadeIn(1000);
          }else {
-             $('#message').html('new category is not created!').fadeIn(1000);
+             $('#message').html('empty value!').fadeIn(1000);
              
          }
            
           });
+          
+          
+         // для удаления повесить обработчик на документ и затем прослушать класс div_newcard
+        // если клик по карточке произошел, получим соответствующий div
+      
+        $(document).on('click', '.div_cardEdit', function(e){
+          console.log(e.target.parentNode);
+          // cardForDelete - глобальная переменная
+          cardForDelete = e.target.parentNode;
+        });
+        
+        
+        // кнопка delete - уберем карточку, полученную на предыдущем шаге со страницы
+        $(".delete").click(function(){
+             if(cardForDelete !== null && confirm('Вы действительно хотите удалить карточку?')){
+                // получим id удаляемой карточки
+               let cardID = Number(cardForDelete.id);
+                console.log(typeof(cardID));
+                // удалим карточку из представления, затем из базы через post-запрос по id
+                cardForDelete.remove();
+                cardForDelete = null;
+                
+                $.ajax({
+                 url:'/edit/delete/',
+                 type: "POST",
+                 data: {cardID:cardID},
+                 success: function(data){
+                    if(data === 'success'){
+                    console.log('success');
+                      
+                    }else if(data === 'unsuccess'){
+                     console.log('unsuccess');
+                      
+                   }
+                 
+                }
+                 
+             });
+                
+                
+                $('#message').html('card is removed').fadeIn(1000);
+            }else {
+                $('#message').html('card is not choiced').fadeIn(1000);
+            }
+            
+        });
+        
+        
+        
+           // кнопка 'add' добавит новую карточку в новую создаваемую категорию  
+        $(".edit_buttons_group:nth-child(3)").click(function(){
+            
+              var categoryID = this.getAttribute('data-parameter');
+              console.log(categoryID);
+              
+               $.ajax({
+                 url:'/edit/addonecard/',
+                 type: "POST",
+                 data: {categoryID:categoryID},
+                 success: function(data){
+                    if(data === 'success'){
+                    console.log('success');
+                    location.reload(); return false; 
+                  
+                    }else if(data === 'unsuccess'){
+                     console.log('unsuccess');
+                      
+                   }
+                   
+                }
+                 
+             });
+             
+              
+        });
+        
           
           
        
@@ -108,6 +192,7 @@
    // 1. Создать новую категорию
    // 2. Создать новую карту
    // 3. Удалить новую карту
+   
    
         // создать новую категорию с хотя бы одной карточкой или серией карточек
         $(".new_buttons_group:nth-child(1)").click(function(){
@@ -166,7 +251,7 @@
         }); 
         // если ничего не введено пользователем, выводим сообщение на страницу
         } else{
-             $('#message').html("value is empty").fadeIn(1000);
+             $('#message').html("create category with card!").fadeIn(1000);
         }
         
      }); 
@@ -202,25 +287,31 @@
         });
       
     
-    // кнопка delete - уберем карточки со страницы, вплоть до последней
+         // для удаления повесить обработчик на документ и затем прослушать класс div_newcard
+         // если клик по карточке произошел, получим соответствующий div
+         // var cardForDelete = null;
+        $(document).on('click', '.div_newcard', function(e){
+            
+          console.log(e.target.parentNode);
+          cardForDelete = e.target.parentNode;
+        });
+        
+        
+        // кнопка delete - уберем карточку, полученную на предыдущем шаге со страницы
         $(".new_buttons_group:nth-child(3)").click(function(){
-           // получить все дочерние элементы div'а newCardsColumn
-           var divChilds = document.getElementById('newCardsColumn').children;
-           // получить количество потомков 
-           var lenght = divChilds.length-1;
-           
-           // удалить последнего потомка
-           divChilds[lenght].remove();
+             if(cardForDelete !== null && confirm('Вы действительно хотите удалить эту карточку?')){
+                cardForDelete.remove();
+                cardForDelete = null;
+                $('#message').html('card is removed').fadeIn(1000);
+            }else {
+                $('#message').html('card is not choiced').fadeIn(1000);
+            }
             
         });
         
         
         
-        
-    
-    
-          // div с сообщением об ошибке
-         // убрать сообщение по клику
+         // убрать сообщение об ошибке по клику
           $('#message').click(function(){
               $('#message').fadeOut(0);
           });
@@ -228,7 +319,8 @@
           
    });
    
-   
+   // вспомогательная функция для формирования объекта
+   // вызывается в подразделе EditController'а
    function toCreateArrayOfCards(textarea, div_cardEdit){
        // сформировать объект, где в одной ячейке будет 3 поля: front, back  со значениями из карточек и id 
           // в порядке их появления на странице

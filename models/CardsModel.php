@@ -16,7 +16,7 @@ function getCardsByID($categoryID){
     
     // защита от SQL-инъекций
     $categoryID = intval($categoryID);
-    $sql = "SELECT * FROM `cards` WHERE category_id = '{$categoryID}'";
+    $sql = "SELECT * FROM `cards` WHERE category_id = '{$categoryID}' ORDER BY id";
     
     global $db;
     
@@ -48,7 +48,7 @@ function deleteCards($categoryID){
     mysqli_query($db, $sql); 
 }
 
-
+// переписать содержимое карточки
 function toUpdateCards($categoryID, $front, $back, $id){
     $sql = "UPDATE cards SET front_card =('$front'), back_card=('$back') WHERE category_id =('$categoryID') && id=('$id')";
     global $db;// взять значение глобальной переменной $db (индентификатор соединения с БД)  
@@ -56,4 +56,26 @@ function toUpdateCards($categoryID, $front, $back, $id){
     
 }
 
+// удалить одну карточку
+function deleteOneCard($cardID){
+    $sql = "DELETE FROM cards WHERE id=('$cardID')";
+    global $db; // взять значение глобальной переменной $db (индентификатор соединения с БД)   
+    mysqli_query($db, $sql); 
+}
 
+// добавить одну карточку
+function toAddOneCardByID($categoryID){
+    $sql =  "INSERT INTO `cards` (category_id, front_card, back_card) VALUES ('{$categoryID}', 'front...' , 'back...' )";
+    global $db; // взять значение глобальной переменной $db (индентификатор соединения с БД)   
+    mysqli_query($db, $sql); 
+}
+
+// посчитать кол-во карточек
+function getNumberOfCards(){
+    $sql = "SELECT COUNT(*) FROM cards";
+    global $db;// взять значение глобальной переменной $db (индентификатор соединения с БД)  
+    $rs = mysqli_query($db, $sql);
+    $numberOfCards = mysqli_fetch_array($rs);
+    
+    return $numberOfCards[0];
+}

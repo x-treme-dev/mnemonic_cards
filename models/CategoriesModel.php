@@ -18,8 +18,8 @@ function toCreateNewCategory($newCategory){
 
 
 function getAllMainCategories(){
-    //возьмем всю таблицу, но выведем только категории
-    $sql = "SELECT * FROM categories";
+    //возьмем всю таблицу, но выведем только категории, отсортированные по id в порядке возрастания
+    $sql = "SELECT * FROM categories ORDER BY id";
     global $db; // взять значение глобальной переменной $db (индентификатор соединения с БД)   
     $rs = mysqli_query($db, $sql); 
    
@@ -60,5 +60,14 @@ function getLastIdCategory(){
      $rs = mysqli_query($db, $sql);
     
      return mysqli_fetch_assoc($rs);
+}
+
+function  getNumberOfCategories(){
+    $sql = "SELECT COUNT(*) FROM categories";
+    global $db;// взять значение глобальной переменной $db (индентификатор соединения с БД)  
+    $rs = mysqli_query($db, $sql);
+    $numberOfCategories = mysqli_fetch_array($rs);
+    
+    return $numberOfCategories[0];
 }
 

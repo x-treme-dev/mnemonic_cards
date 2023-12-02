@@ -49,7 +49,7 @@ function indexAction($smarty){
     loadTemplate($smarty, 'header');
     loadTemplate($smarty, 'top');
     loadTemplate($smarty, 'cards_panel');
-    loadTemplate($smarty, 'index_left_column');
+    loadTemplate($smarty, 'cards_left_column');
     loadTemplate($smarty, 'cards_column');
 
     

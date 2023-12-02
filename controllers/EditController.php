@@ -21,8 +21,7 @@ function indexAction($smarty){
     $rsCards = getCardsByID($categoryID);
     
     $oneCategory = getOneCategory($categoryID);
-     
-  
+   
     
      //вывести в шаблоне 
     $smarty->assign('pageTitle', 'm-cards');
@@ -84,6 +83,41 @@ function updatecategoryAction(){
         
       }
  }
+ 
+ 
+function deleteAction(){
+    
+      if(isset($_POST['cardID']) && $_POST['cardID'] !== '0'){
+        
+        $cardID = $_POST['cardID'];
+        
+       
+        deleteOneCard($cardID);
+        
+         echo 'success';
+    } 
+    else{
+        echo 'unsuccess';
+    }
+    
+}
+
+
+function addonecardAction(){
+     if(isset($_POST['categoryID'])){
+        
+        $categoryID = $_POST['categoryID'];
+        
+       
+        toAddOneCardByID($categoryID);
+         
+        
+         echo 'success';
+    } 
+    else{
+        echo 'unsuccess';
+    }
+}
 
 
 
