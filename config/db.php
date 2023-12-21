@@ -25,10 +25,31 @@ if(! $db){
 
 //echo "Connected successfully";
 //printf("Успешно...%s\n", mysqli_get_host_info($db));
- 
- 
-//mysqli_close($db); 
 
+ // создадим таблицы, если их нет
+     $sql = "CREATE TABLE IF NOT EXISTS `cards` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `category_id` int(11) NOT NULL,
+      `front_card` varchar(255) NOT NULL,
+      `back_card` varchar(255) NOT NULL,
+      PRIMARY KEY (`id`) 
+     ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;";
+    
+      
+    
+    // sql-запрос к БД
+    mysqli_query($db, $sql);
+
+ 
+     $sql =  "CREATE TABLE IF NOT EXISTS `categories` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `category` varchar(50) NOT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;";
+     
+    mysqli_query($db, $sql);
+
+  //mysqli_close($db); 
  
 
  

@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Serif+4:ital,opsz@1,8..60&display=swap');
+
 a {
    align-items: center;
-   border-bottom: dotted #D9D9D9;
+   border-bottom: 2px dotted #D9D9D9;
+   color: #000;
    display: flex;
    justify-content: space-between;
    padding: 10px;
@@ -8,34 +11,38 @@ a {
   
 }
 
+.a_title{
+    border: none;
+    color: #007C21;
+    font-family: 'Source Serif 4', serif;
+    font-size: 200%;
+    margin: 0 0 0 10px;
+}
+
+.a_backTo {
+    border: 1px solid #007C21; /* Рамка */
+    background-color: #64DF85;
+    color: #007C21;
+    display: inline-block;
+    padding: 5px 15px; /* Поля */
+    margin: 30px 0 0 20px;
+    text-decoration: none; /* Убираем подчёркивание */
+    text-align: center;
+    color: #000; /* Цвет текста */
+    cursor: pointer;
+    width: 245px;
+  }
+
+
 p{
     margin:0;
     padding: 10px 0 10px 5px;
 }
 
-.a_title{
-    border: none;
-    font-family: Georgia, cursive;
-    font-size: 250%;
-    color: #fff;
-    margin: 0 0 0 10px;
-}
-
-
-.a_backTo {
-    border: 1px solid #333; /* Рамка */
-    display: inline-block;
-    padding: 5px 15px; /* Поля */
-    margin: 200px 0 0 10px;
-    text-decoration: none; /* Убираем подчёркивание */
-    color: #000; /* Цвет текста */
-    cursor: pointer;
-    width: 100px;
-  }
-   
-
 
 body{
+    
+    font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
     display: block;
@@ -44,72 +51,80 @@ body{
 
 #box{
     border: 2px dotted #D9D9D9;
-    margin-top: 10px;
+    margin: 50px 0 0 150px;
     width: 20%;
 }
 
  #button_NewCategory {
-    border: 2px solid #fff;
-    border-radius: 3px;
-    background-color: #e5e8e8;
+    border: 2px dotted #007C21;
+    background-color: #64DF85;
     display: inline-block;
     font-size: 100%;
     margin: 10px 0 0 35px;
     padding: 5px 15px; /* Поля */
     text-align: center;
     text-decoration: none;
-    color: #fff; /* Цвет текста */
+    color: #007C21; /* Цвет текста */
     cursor:pointer;
     height: 40px;
     width: 150px;
 }
 
 .buttons_group, .edit_buttons_group, .new_buttons_group{
-    background-color: #e5e8e8; 
+    background-color: #FF1E00; 
     border: 2px dotted #fff;
     height: 48px;
     margin: 5px 10px 0 0;
     width: 80px;
 }
 
- 
+ #cardsColumn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
  #cardsColumn, #newCardsColumn{
+     border-top: 2px dotted #007C21;
      float: left;
-     margin-left: 20px;
-     width: 72%;
+     padding-top: 20px;
+     width: 75%;
+     height: 100%;
 }
 
 #centerColumn, #centerColumnMain{
+   border-top: 2px dotted #007C21;
+   background-color: #38DF64;
    float: right;
-   width: 70%; 
-}
-
- 
-
-#cardsColumn{
-    display: flex;
-    margin-top: 20px;
+   height: 81vh;
+   width: 75%; 
+   
 }
 
 .card_front, .card_back, .card_frontEdit, .card_backEdit{
+    border: 2px dotted #007C21;
+    font-size: 120%;
+    padding: 20px 0 0 10px;
     resize: none;
+    text-align: center;
     width: 47%;
     height: 100%;
 }  
 
+.card_front, .card_frontEdit{
+    background-color: #38DF64;
+}
+
 .div_newcard, .div_cardEdit{
-    margin: 20px;
+    margin:  20px;
     display: flex;
     justify-content: space-between;
-    width: 450px;
-    height: 250px;
+    width: 520px;
+    height: 230px;
 }
 
 .div_cardEdit{
     position: relative;
-    width: 600px;
-    height: 400px;
 }
 
 .delete{
@@ -131,9 +146,6 @@ body{
  }
     
 
-
-
-
 #group_left, #group_right{
    display: flex;
    flex-direction: row;
@@ -151,20 +163,15 @@ body{
     width: 28%;
 }
 
-
-
- 
- 
-
- 
 #input_NewCategory{
     border:0;
-    border-bottom: 2px solid #D2D2D2;
+    border-bottom: 2px solid #007C21;
+    color: #007C21;
     outline: none;
-    margin: 5px 0 0 0;
+    margin: 30px 0 0 20px;
     padding: 0 0 0 10px;
     height: 45px;
-    width: 200px;
+    width: 270px;
 }
 #input_editCategory{
     border:0;
@@ -178,11 +185,14 @@ body{
 }
 
 #oneCategory{
+    background-color: #F8F9F9;
+    border-bottom: 2px solid #64DF85;
     text-align: center;
     display: inline-block;
     outline: none;
     margin: 5px 0 0 0;
-    height: 45px;
+    padding-top:10px;
+    height: 35px;
     width: 100%; 
 }
 
@@ -190,13 +200,17 @@ body{
 
 #newCardsColumn, #editCardsColumn{
     display: flex;
-    justify-content:space-between;
+    height: 100%;
+    justify-content:center;
     flex-direction: row;
     flex-wrap: wrap;
     
 }
 
 #leftColumn{
+   border-top: 2px dotted #007C21;
+   background-color: #38DF64;
+   height: 81vh;
    float: left;
    width: 25%;
    display: flex;
@@ -207,13 +221,13 @@ body{
 
 #message{
     text-align: center;
-    background-color: #D2D2D2;
+    background-color: #FF1E00;
     border:0;
     display: none;
-    margin: 5px 0 0 15px;
-    padding: 5px;
-    height: 40px;
-    width: 200px;
+    margin: 0 0 0 25%;
+    padding: 15px;
+    height: 30px;
+    width: 380px;
 }
 
 #input_oneCategory{
@@ -228,7 +242,6 @@ body{
 
 
 #search, #edit, #new{
-    border-bottom: dotted #D9D9D9;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -238,7 +251,8 @@ body{
 
 
 #top{
-     background-color: #e5e8e8; 
+    border-bottom: 2px dotted #007C21;
+     background-color: #38DF64; 
      display: flex;
      height: 60px;
      flex-direction: row;
@@ -247,36 +261,30 @@ body{
 
 
 
- 
-
-
-
-
 /*****************Begin Card Styles************/
 .card{
     width: 250px;
     height: 250px;
-    margin-right: 30px;
+    margin: 20px 20px 20px 20px;
     position: relative;
     perspective: 1000px; /*глубина*/
 }
  
 .front, .back{
     backface-visibility: hidden;
-    border: dotted #D9D9D9;
-    border-radius: 10px;
+    border:2px dotted #007C21;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100%;
+    text-align: center;
+    height: 95%;
     width: 100%;
-    position: absolute;
+    position: absolute; 
     transition: 1s;
-    padding-left: 10px;
+    padding-top: 5%;
  }
 
 .front{
-    background-color: #fff;
+    background-color: #38DF64;
 }
 
 .back{
