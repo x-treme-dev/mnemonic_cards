@@ -1,9 +1,6 @@
 <div id="edit">
      
-    <div id="group_left">
-       
-      
-    </div>
+     
     
      <div id="group_center">
          <input id="input_editCategory" type="text" value="{$oneCategory.category}">

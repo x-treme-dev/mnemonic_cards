@@ -1,0 +1,608 @@
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Serif+4:ital,opsz@1,8..60&display=swap');
+
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
+
+p{
+    margin:0;
+    padding: 10px 0 10px 5px;
+}
+
+
+html, body{
+    font-family: 'Montserrat', sans-serif;
+    height: 100%;
+    font-size:110%;
+   
+}
+
+body {
+     box-sizing: border-box;
+}
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+   
+}
+/*-----------------container top ------------------------*/
+
+.container #top{
+    border-bottom: 2px dotted #007C21;
+     background-color: #38DF64; 
+     display: flex;
+     min-height: 10vh;
+     flex-direction: row;
+     justify-content: start;
+     align-items: center;
+}
+
+
+.container #input_editCategory{
+    border:0;
+    border-bottom: 2px solid #D2D2D2;
+    display: inline-block;
+    font-weight: bold;
+    font-size:130%;
+    outline: none;
+    margin: 5px 0 0 0;
+    text-align: center;
+    height: 60px;
+    width: 100%; 
+    
+}
+
+
+.container #top .a_title{
+    border: none;
+    color: #FF1E00;
+    font-family: 'Source Serif 4', serif;
+    font-size: 250%;
+    margin: 0 0 0 10px;
+    text-decoration: none;
+}
+
+ .container #top #button_NewCategory {
+    border: 2px dotted #007C21;
+    background-color: #64DF85;
+    display: inline-block;
+    font-size: 100%;
+    margin-left: 40px;
+    padding: 5px 15px; /* Поля */
+    text-align: center;
+    text-decoration: none;
+    color: #007C21; /* Цвет текста */
+    cursor:pointer;
+    height: 60px;
+    width: 200px;
+}
+
+
+ 
+ 
+.container #search  #group_right{
+   display: flex;
+   flex-wrap:nowrap;
+   justify-content: end;
+   width: 40%;
+}
+
+
+.container #search #group_center{
+    width: 40%;
+}
+ 
+
+.container #search, #edit{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    min-height: 10vh;
+ }
+
+.container  #edit #group_center {
+   width:40%; 
+}
+
+.container #edit #group_right{
+   display: flex;
+   flex-direction: row;
+   justify-content: end;
+   width: 40%;
+ }
+
+
+
+ .container #search #oneCategory{
+    background-color: #F8F9F9;
+    border-bottom: 2px solid #64DF85;
+    font-size: 115%;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    display: inline-block;
+    outline: none;
+    padding-top:18px;
+    height: 38px;
+    width: 100%; 
+}
+
+ .container #search .buttons_group, .edit_buttons_group, .new_buttons_group{
+    background-color: #FF1E00; 
+    border: 2px dotted #fff;
+    height: 60px;
+    margin-right: 20px;
+    width: 100px;
+    font-size:100%;
+}
+
+.container #new {
+   align-items: center;
+}
+ 
+.container .container_from_two_blocks {
+  border-top: 2px dotted #007C21;
+  display: flex;
+  flex-direction: row; 
+}
+
+.container .container_from_two_blocks #centerColumn, #centerColumnMain {
+   background-color: #38DF64;
+   float: right;
+   min-height: 80vh;
+   width: 70%;
+}
+
+.container .container_from_two_blocks #centerColumnMain #box{
+    border: 2px dotted #D9D9D9;
+    margin: 50px 0 0 150px;
+    width: 20%;
+ }
+
+
+.container .container_from_two_blocks #cardsColumn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:70%;
+    
+ }
+
+ 
+.container .container_from_two_blocks #leftColumn{
+   background-color: #38DF64;
+   min-height: 80vh;
+   float: left;
+   width: 30%;
+   display: flex;
+   flex-direction: column;
+  
+}
+
+
+.container #editCardsColumn .div_cardEdit .delete{
+    border-radius: 3px;
+    background:
+    linear-gradient(45deg, transparent calc(50% - var(--weight) - var(--aa)), var(--color) calc(50% - var(--weight)), var(--color) calc(50% + var(--weight)), transparent calc(50% + var(--weight) + var(--aa))),
+    linear-gradient(-45deg, transparent calc(50% - var(--weight) - var(--aa)), var(--color) calc(50% - var(--weight)), var(--color) calc(50% + var(--weight)), transparent calc(50% + var(--weight) + var(--aa)));
+    display: block;
+    position: absolute;
+    top:10px; 
+    right: 10px;    
+    width: 20px;
+    height: 20px;
+    --weight: 2px;
+    --aa: 1px; /* anti-aliasing */
+    --color: red;
+    cursor:pointer;
+    opacity: 0.8;
+ }
+
+    
+.container .container_from_two_blocks #leftColumn #input_NewCategory{
+    border:0;
+    border-bottom: 2px solid #007C21;
+    color: #007C21;
+    outline: none;
+    margin: 30px auto;
+    padding: 0 0 0 10px;
+    height: 45px;
+    width: 270px;
+}
+
+ .container .container_from_two_blocks #leftColumn .a_backTo {
+    border: 1px solid #007C21; /* Рамка */
+    background-color: #64DF85;
+    color: #007C21;
+    display: inline-block;
+    padding: 5px 15px; /* Поля */
+    margin: 0px auto;
+    text-decoration: none; /* Убираем подчёркивание */
+    text-align: center;
+    color: #000; /* Цвет текста */
+    cursor: pointer;
+    width: 245px;
+  }
+
+
+.container .container_from_two_blocks #leftColumn a {
+   align-items: center;
+   border-bottom: 2px dotted #D9D9D9;
+   color: #000;
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
+   text-decoration: none;
+  
+  
+}
+
+.container .container_from_two_blocks #newCardsColumn{
+     box-sizing:border-box;
+     float: left;
+     padding-top: 20px;
+     width: 70%;
+     height: 76vh;
+     overflow: auto;
+}
+ 
+
+
+.container #new {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: end;
+    margin-right: 20px;
+    min-height: 10vh;
+    
+}
+
+
+#newCardsColumn, #editCardsColumn{
+    display: flex;
+    height: 80vh;
+    justify-content:center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+
+
+
+.container #top #message{
+    text-align: center;
+    background-color: #FF1E00;
+    border:0;
+    display: none;
+    margin: 0 0 0 150px;
+    padding: 15px;
+    height: 30px;
+    width: 40%;
+}
+
+.container #input_oneCategory{
+    border:0;
+    border-bottom: 2px solid #D2D2D2;
+    outline: none;
+    margin: 5px 0 0 0;
+    padding: 0 0 0 10px;
+    height: 45px;
+    width: 25%;
+}
+
+
+
+.container .container_from_two_blocks #newCardsColumn .div_newcard, .div_cardEdit{
+    margin:  20px;
+    display: flex;
+    justify-content: space-between;
+    width: 580px;
+    height: 230px;
+}
+ 
+.container .card_front, .card_back, .card_frontEdit, .card_backEdit {
+    border: 2px dotted #007C21;
+    padding: 25px 10px 5px 10px;
+    resize: none;
+    text-align: center;
+    width: 47%;
+    height: 100%;
+    font-size:130%;
+}  
+
+.container .card_front, .card_frontEdit{
+    background-color: #38DF64;
+}
+
+
+.container .div_cardEdit{
+    position: relative;
+}
+
+
+
+
+
+
+/*****************Begin Card Styles************/
+.card{
+    width: 280px;
+    height: 280px;
+    margin: 20px 10px 10px 10px;
+    position: relative;
+    perspective: 1000px; /*глубина*/
+}
+ 
+.front, .back{
+    backface-visibility: hidden;
+    border:2px dotted #007C21;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 95%;
+    width: 100%;
+    position: absolute; 
+    transition: 1s;
+    padding-top: 5%;
+ }
+
+.front{
+    background-color: #38DF64;
+}
+
+.back{
+    background-color: #fff;
+    transform: rotateY(180deg);
+}
+
+.card:hover .front{transform: rotateY(180deg);}
+.card:hover .back{transform: rotateY(360deg);}
+
+/************End Card Styles*************/
+
+ 
+/************TextArea Styles**************************/
+
+input[type="text"]{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+}
+
+
+
+/*---------------medium screens: for tablets ------------------------*/
+@media (min-width:481px) and (max-width:768px){
+    
+     body{
+        font-size:90%;
+    } 
+     
+    .container .container_from_two_blocks #leftColumn {
+       width: 40%;
+    }
+    
+    .container .container_from_two_blocks #centerColumnMain {
+        width: 60%;
+    }
+    
+    .container .container_from_two_blocks #centerColumnMain #box {
+        
+    margin: 50px 0 0 50px;
+    width: 50%;
+    }
+    
+    .container .container_from_two_blocks #cardsColumn {
+        width: 60%;
+    }
+    
+    .container .container_from_two_blocks #cardsColumn .card{
+          margin: 6px 4px 6px 4px;
+    }
+   
+    .container #search {
+        flex-wrap: wrap;
+    } 
+    
+     .container #search #group_center, #group_right{
+        width:100%;
+        
+    }
+    
+     .container #search #group_right{
+        width:100%;
+        justify-content: center;
+    }
+    
+    
+    .container #search #group_center #oneCategory{
+        font-size:110%;
+    }
+    
+    .container #edit {
+        flex-wrap: wrap;
+    }
+    
+    .container #edit #group_center {
+        width: 100%;
+    }
+     
+    .container #edit #group_right {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .container #edit #input_editCategory {
+        text-align: center;
+        font-size: 110%;
+    }
+    
+    .container #editCardsColumn  .div_cardEdit {
+        margin: 6px 2px;
+    }
+    
+    .container #new {
+        margin:0px;
+    }
+    
+    .container #new #group_right{
+        display: flex;
+        justify-content: center;
+        margin: 20px 10px;
+        width: 100%;
+    }
+     
+   .container .container_from_two_blocks #leftColumn #input_NewCategory {
+        margin:30px auto;
+        font-size: 80%;
+        width: 60%;
+    }
+    
+    .container .container_from_two_blocks #leftColumn .a_backTo {
+        margin: 0px auto;
+        width: 54%;
+    }
+    
+    .container #top #message {
+        margin: 0 0 0 6px;
+    }
+}
+
+/**--------------small screens: for moblile phones ----------------------------------**/
+@media (max-width:480px){
+    body{
+        font-size:80%;
+    } 
+    
+   .container .container_from_two_blocks {
+       flex-direction: column;
+   }
+    .container .container_from_two_blocks #leftColumn {
+        
+        float:none;
+        width:100%;
+    }
+    
+   
+    .container #search #group_center #oneCategory {
+        font-size:110%;
+    }
+    
+    .container .container_from_two_blocks #cardsColumn {
+        float:none;
+        width:100%;
+    }
+    
+    .container .container_from_two_blocks #centerColumn, #centerColumnMain{
+        float:none;
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .container .container_from_two_blocks #centerColumnMain #box {
+        margin: 50px auto;
+        width: 40%;
+    }
+    
+    .container #top .a_title {
+         margin: 0 4px 0 4px;
+    }
+    
+    .container #top #button_NewCategory {
+        height: 50px;
+        width: 170px;
+        padding: 5px 5px; /* Поля */
+        margin: 0 2px 0 2px;
+    }
+    
+    .container #search {
+        flex-direction: column;
+    }
+    
+    .container #search #group_center{
+        width:100%;
+    }
+    
+    .container #search #group_right {
+        margin: 2px 0 2px 0;
+        width: 100%;
+        justify-content: center;
+    } 
+    
+    .container #edit #group_right {
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+     .container #edit #group_center{
+        width: 100%;
+        
+    }
+    
+    .container #edit #group_center #input_editCategory{
+        text-align: center;
+        font-size:110%;
+    }
+    
+    .container #edit #group_right .edit_buttons_group {
+        margin: 0 2px 0 2px;
+    }
+    
+    .container #editCardsColumn .div_cardEdit .delete {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .container #new{
+      justify-content: center; 
+      margin: 0; 
+       
+    }
+    
+    .container #new #group_right {
+        margin: auto;
+    }
+    
+    .container #new #group_right .new_buttons_group{
+       margin-right: 2px;
+        width: 90px;
+    }
+    
+    .container  #leftColumn #input_NewCategory {
+       margin: 30px auto;
+    }
+    
+     .container  #leftColumn .a_backTo {
+       margin: 0px auto;
+    }
+    
+    .container .container_from_two_blocks #newCardsColumn{
+        width: 100%;
+    }
+    
+    .container #top #message {
+        margin: auto 2px;
+        width:50%;
+    }
+    
+    .container #search, #edit {
+        flex-wrap:wrap;
+    }
+    
+}

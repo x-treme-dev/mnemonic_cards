@@ -1,4 +1,5 @@
-
+<div class="container">
+    
 {*верхнияя панель приложнеия - top*} 
         <div id="top">
          <a class="a_title" href="/index/">{$pageTitle}</a>

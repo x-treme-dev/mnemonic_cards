@@ -1,3 +1,5 @@
+<div class="container_from_two_blocks">
+
 <div id="leftColumn">
       
       

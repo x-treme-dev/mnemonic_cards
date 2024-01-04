@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-12-02 22:12:35
+/* Smarty version 4.3.2, created on 2024-01-01 08:55:14
   from '/opt/lampp/htdocs/cards-project/views/default/cards_left_column.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_656b9dc344dac0_49167546',
+  'unifunc' => 'content_65926fe2d0e172_46630327',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '420877ea7be8f768b342483d75958f389470befe' => 
     array (
       0 => '/opt/lampp/htdocs/cards-project/views/default/cards_left_column.tpl',
-      1 => 1701551552,
+      1 => 1704095712,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_656b9dc344dac0_49167546 (Smarty_Internal_Template $_smarty_tpl) {
-?>
+function content_65926fe2d0e172_46630327 (Smarty_Internal_Template $_smarty_tpl) {
+?><div class="container_from_two_blocks">
 <div id="leftColumn">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['rsCategories']->value, 'item');

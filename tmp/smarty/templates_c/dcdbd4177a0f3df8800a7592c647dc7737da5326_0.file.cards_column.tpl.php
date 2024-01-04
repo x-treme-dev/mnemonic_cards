@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-11-04 08:47:55
+/* Smarty version 4.3.2, created on 2023-12-27 20:47:01
   from '/opt/lampp/htdocs/cards-project/views/default/cards_column.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_6545f72bdb3c13_79054084',
+  'unifunc' => 'content_658c7f35ae5b45_48727167',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dcdbd4177a0f3df8800a7592c647dc7737da5326' => 
     array (
       0 => '/opt/lampp/htdocs/cards-project/views/default/cards_column.tpl',
-      1 => 1697474150,
+      1 => 1703706413,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6545f72bdb3c13_79054084 (Smarty_Internal_Template $_smarty_tpl) {
+function content_658c7f35ae5b45_48727167 (Smarty_Internal_Template $_smarty_tpl) {
 ?>   
 
 <div id='cardsColumn'>
@@ -46,7 +46,7 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> 
 </div>
 
- 
+  
  </body>
 
 </html><?php }

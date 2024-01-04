@@ -1,12 +1,7 @@
 {*панель поиска c кнопками*}
 
 <div id="search">
-     
-    <div id="group_left">
-        
-      
-      
-    </div>
+   
     
      <div id="group_center">
          <div id="oneCategory">{$oneCategory.category}</div>

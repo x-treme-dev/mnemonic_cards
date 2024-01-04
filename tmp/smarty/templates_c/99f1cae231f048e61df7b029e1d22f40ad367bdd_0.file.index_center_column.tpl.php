@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-12-16 09:24:29
+/* Smarty version 4.3.2, created on 2024-01-01 08:48:18
   from '/opt/lampp/htdocs/cards-project/views/default/index_center_column.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_657d5ebd27fc51_50924756',
+  'unifunc' => 'content_65926e42548400_08771153',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99f1cae231f048e61df7b029e1d22f40ad367bdd' => 
     array (
       0 => '/opt/lampp/htdocs/cards-project/views/default/index_center_column.tpl',
-      1 => 1702715067,
+      1 => 1704095293,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_657d5ebd27fc51_50924756 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65926e42548400_08771153 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="centerColumnMain">
     
               <div id="box">
@@ -29,7 +29,10 @@ function content_657d5ebd27fc51_50924756 (Smarty_Internal_Template $_smarty_tpl)
               <p>Карточек: <?php echo $_smarty_tpl->tpl_vars['numberOfCards']->value;?>
 </p>
               </div>
-</div>              
+</div>  
+              
+    </div>            
+  </div>            
 </body>
 
 </html><?php }

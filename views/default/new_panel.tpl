@@ -1,13 +1,10 @@
 <div id="new">
      
-    <div id="group_left">
-         
-      
-    </div>
     
-     <div id="group_center">
+    
+    <!-- <div id="group_center">
             <div id="message"></div> 
-     </div>
+     </div> -->
     
      
     <div id="group_right">

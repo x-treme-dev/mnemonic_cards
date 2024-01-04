@@ -4,7 +4,10 @@
               <p>Категорий: {$numberOfCategories} </p>
               <p>Карточек: {$numberOfCards}</p>
               </div>
-</div>              
+</div>  
+              
+    </div>            
+  </div>            
 </body>
 
 </html>

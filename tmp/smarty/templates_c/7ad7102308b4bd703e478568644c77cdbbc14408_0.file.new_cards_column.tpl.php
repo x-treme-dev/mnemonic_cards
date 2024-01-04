@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.2, created on 2023-11-11 19:37:06
+/* Smarty version 4.3.2, created on 2024-01-01 09:28:39
   from '/opt/lampp/htdocs/cards-project/views/default/new_cards_column.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.2',
-  'unifunc' => 'content_654fc9d20b5280_09854388',
+  'unifunc' => 'content_659277b7a1e657_44806044',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7ad7102308b4bd703e478568644c77cdbbc14408' => 
     array (
       0 => '/opt/lampp/htdocs/cards-project/views/default/new_cards_column.tpl',
-      1 => 1699727823,
+      1 => 1704097712,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_654fc9d20b5280_09854388 (Smarty_Internal_Template $_smarty_tpl) {
+function content_659277b7a1e657_44806044 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="newCardsColumn">
             
@@ -32,6 +32,9 @@ function content_654fc9d20b5280_09854388 (Smarty_Internal_Template $_smarty_tpl)
                 
             
  </div> 
+
+</div>
+</div>
  
 </body>
 
