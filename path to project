@@ -1,0 +1,19 @@
+1. lampp, директория /opt/lampp/etc/extra
+
+2. Найти файл httpd-vhosts.conf 
+
+3. В файле прописан адрес виртуального хоста с портом, а также указание на файл index.php
+
+<VirtualHost 127.0.0.5:80>
+    DocumentRoot "/opt/lampp/htdocs/cards-project/public_html"
+    DirectoryIndex index.php
+    
+    <Directory "/opt/lampp/htdocs/cards-project/www">
+    Options All
+    AllowOverride All
+    Require all granted
+    </Directory>
+</VirtualHost>
+
+
+4. В файле проекта /conf/db.php указать базу данных 
